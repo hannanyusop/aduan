@@ -8642,22 +8642,19 @@ h1, h2, h3, h4, h5,
     .btn.btn-primary.btn-outline-primary {
       border: 1px solid #1b9ce3;
       background: transparent;
-      color: #1b9ce3; }
+      color: #fafff8; }
       .btn.btn-primary.btn-outline-primary:hover {
         border: 1px solid transparent;
         background: #1b9ce3;
         color: #fff; }
   .btn.btn-white {
-    background: #fff;
+    background: #f20c15;
     border: 1px solid #fff;
-    color: #1b9ce3; }
-.btn.red {
-  background: #ff0c18;
-  border: 1px solid #fff;
-  color: #ff0c18; }
+    color: #e3ddde; }
     .btn.btn-white:hover, .btn.btn-white:focus, .btn.btn-white:active {
       border: 1px solid #fff;
-      color: #1b9ce3; }
+      background: #a30400;
+      color: #fcf8fc; }
     .btn.btn-white.btn-outline-white {
       border-color: rgba(255, 255, 255, 0.8);
       background: none;

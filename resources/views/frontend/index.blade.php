@@ -44,15 +44,16 @@
 </nav>
 <!-- END nav -->
 
-<section class="ftco-section ftco-consult ftco-no-pt ftco-no-pb" style="background-image: url({{ asset('homepage/images/ads_1.jpg') }});" data-stellar-background-ratio="0.5" style="background-color: #CD2122">
+<section class="ftco-section ftco-consult ftco-no-pt ftco-no-pb" style="background-color: #e4e5e3">
     <div class="container">
         <div class="row justify-content-end">
             <div class="col-md-6 py-5 px-md-5">
                 <div class="py-md-5">
-                    <div class="heading-section heading-section-white ftco-animate mb-5">
+                    <div class="heading-section heading-section-white mb-5">
                         <h2 class="mb-4 text-danger">Aduan</h2>
                     </div>
 
+                    @include('includes.partials.messages')
                     {{ html()->form('POST', route('frontend.contact.send'))->class('appointment-form ftco-animate')->open() }}
                         <div class="d-md-flex">
                             <div class="form-group">
@@ -103,22 +104,19 @@
                     <div class="block-23 mb-3">
                         <ul>
                             <li><span class="icon icon-map-marker"></span><span class="text">Majlis Agama Islam Wilayah Persekutuan<br>Financial Park, 87000 Labuan, Labuan Federal Territory</span></li>
-                            <li><a href="#"><span class="icon icon-phone"></span><span class="text">087-418 515</span></a></li>
-                            <li><a href="#"><span class="icon icon-envelope"></span><span class="text">info@yourdomain.com</span></a></li>
                         </ul>
                     </div>
                 </div>
             </div>
             <div class="col-md-6 col-lg-3">
-                <div class="ftco-footer-widget mb-5 ml-md-4">
-                    <h2 class="ftco-heading-2">Links</h2>
-                    <ul class="list-unstyled">
-                        <li><a href="#"><span class="ion-ios-arrow-round-forward mr-2"></span>Home</a></li>
-                        <li><a href="#"><span class="ion-ios-arrow-round-forward mr-2"></span>About</a></li>
-                        <li><a href="#"><span class="ion-ios-arrow-round-forward mr-2"></span>Services</a></li>
-                        <li><a href="#"><span class="ion-ios-arrow-round-forward mr-2"></span>Projects</a></li>
-                        <li><a href="#"><span class="ion-ios-arrow-round-forward mr-2"></span>Contact</a></li>
-                    </ul>
+                <div class="ftco-footer-widget mb-5">
+                    <h2 class="ftco-heading-2"><br></h2>
+                    <div class="block-23 mb-3">
+                        <ul>
+                            <li><a href="#"><span class="icon icon-phone"></span><span class="text">087-418 515</span></a></li>
+                            <li><a href="#"><span class="icon icon-envelope"></span><span class="text">info@yourdomain.com</span></a></li>
+                        </ul>
+                    </div>
                 </div>
             </div>
             <div class="col-md-6 col-lg-3">
@@ -136,19 +134,12 @@
             <div class="col-md-12 text-center">
 
                 <p>
-                    Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="icon-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+                    Hakcipta © 2017 Majlis Agama Islam Wilayah Persekutuan. Disediakan oleh Bahagian Teknologi Maklumat.
                 </p>
             </div>
         </div>
     </div>
 </footer>
-
-
-
-<!-- loader -->
-<div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00"/></svg></div>
-
-
 <script src="{{ asset('homepage/js/jquery.min.js') }}"></script>
 <script src="{{ asset('homepage/js/jquery-migrate-3.0.1.min.js')}}"></script>
 <script src="{{ asset('homepage/js/popper.min.js') }}"></script>
