@@ -27,8 +27,9 @@ class SendContactRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => ['required'],
             'email' => ['required', 'email'],
+            'phone' => 'required: min:10',
+            'subject' => 'required:min:5',
             'message' => ['required'],
             'g-recaptcha-response' => ['required_if:captcha_status,true', 'captcha'],
         ];

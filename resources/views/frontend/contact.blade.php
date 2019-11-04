@@ -14,31 +14,13 @@
 
                 <div class="card-body">
                     {{ html()->form('POST', route('frontend.contact.send'))->open() }}
-                        <div class="row">
-                            <div class="col">
-                                <div class="form-group">
-                                    {{ html()->label(__('validation.attributes.frontend.name'))->for('name') }}
-
-                                    {{ html()->text('name', optional(auth()->user())->name)
-                                        ->class('form-control')
-                                        ->placeholder(__('validation.attributes.frontend.name'))
-                                        ->attribute('maxlength', 191)
-                                        ->required()
-                                        ->autofocus() }}
-                                </div><!--form-group-->
-                            </div><!--col-->
-                        </div><!--row-->
 
                         <div class="row">
                             <div class="col">
                                 <div class="form-group">
                                     {{ html()->label(__('validation.attributes.frontend.email'))->for('email') }}
 
-                                    {{ html()->email('email', optional(auth()->user())->email)
-                                        ->class('form-control')
-                                        ->placeholder(__('validation.attributes.frontend.email'))
-                                        ->attribute('maxlength', 191)
-                                        ->required() }}
+                                    {{ html()->email('email', optional(auth()->user())->email)->class('form-control')->attribute('maxlength', 191)->required() }}
                                 </div><!--form-group-->
                             </div><!--col-->
                         </div><!--row-->
@@ -48,11 +30,17 @@
                                 <div class="form-group">
                                     {{ html()->label(__('validation.attributes.frontend.phone'))->for('phone') }}
 
-                                    {{ html()->text('phone')
-                                        ->class('form-control')
-                                        ->placeholder(__('validation.attributes.frontend.phone'))
-                                        ->attribute('maxlength', 191)
-                                        ->required() }}
+                                    {{ html()->text('phone')->class('form-control')->attribute('maxlength', 191)->required() }}
+                                </div><!--form-group-->
+                            </div><!--col-->
+                        </div><!--row-->
+
+                        <div class="row">
+                            <div class="col">
+                                <div class="form-group">
+                                    {{ html()->label('Subject')->for('subject') }}
+
+                                    {{ html()->text('subject')->class('form-control')->attribute('maxlength', 191)->required() }}
                                 </div><!--form-group-->
                             </div><!--col-->
                         </div><!--row-->
@@ -62,11 +50,7 @@
                                 <div class="form-group">
                                     {{ html()->label(__('validation.attributes.frontend.message'))->for('message') }}
 
-                                    {{ html()->textarea('message')
-                                        ->class('form-control')
-                                        ->placeholder(__('validation.attributes.frontend.message'))
-                                        ->attribute('rows', 3)
-                                        ->required() }}
+                                    {{ html()->textarea('message')->class('form-control')->attribute('rows', 3)->required() }}
                                 </div><!--form-group-->
                             </div><!--col-->
                         </div><!--row-->
