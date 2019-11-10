@@ -1,9 +1,5 @@
 <!DOCTYPE html>
-@langrtl
-    <html lang="{{ str_replace('_', '-', app()->getLocale()) }}" dir="rtl">
-@else
-    <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-@endlangrtl
+<html lang="en">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -11,47 +7,53 @@
     <title>@yield('title', app_name())</title>
     <meta name="description" content="@yield('meta_description', 'e-aduan MAIWP Labuan')">
     <meta name="author" content="@yield('meta_author', 'Jabatan Teknologi MAIWP')">
-    @yield('meta')
+    <link rel="shortcut icon" href="{{ asset('theme/default/images/favicon.ico') }}">
 
-    @stack('before-styles')
+    <link href="{{ asset('theme/default/css/bootstrap.min.css') }}" rel="stylesheet" type="text/css" />
+    <link href="{{ asset('theme/default/css/icons.min.css') }}" rel="stylesheet" type="text/css" />
+    <link href="{{ asset('theme/default/css/app.min.css') }}" rel="stylesheet" type="text/css" />
 
-    {{ style(mix('css/backend.css')) }}
-
-    @stack('after-styles')
 </head>
-<body class="app header-fixed sidebar-fixed aside-menu-off-canvas sidebar-lg-show">
+
+<body>
+<div id="wrapper">
     @include('backend.includes.header')
+    @include('backend.includes.sidebar')
+    @include('includes.partials.messages')
 
-    <div class="app-body">
-        @include('backend.includes.sidebar')
+    <div class="content-page">
 
-        <main class="main">
-            @include('includes.partials.read-only')
-            @include('includes.partials.logged-in-as')
-            {!! Breadcrumbs::render() !!}
+        <div class="content">
 
             <div class="container-fluid">
-                <div class="animated fadeIn">
-                    <div class="content-header">
-                        @yield('page-header')
-                    </div><!--content-header-->
+                @if(isset($links))
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="page-title-box">
+                                <div class="page-title-right">
+                                    <ol class="breadcrumb m-0">
+                                        @foreach($links as $a => $link)
+                                            <li class="breadcrumb-item active"><a href="{{ $link }}">{{ $a }}</a></li>
+                                        @endforeach
+                                    </ol>
+                                </div>
+                                <h4 class="page-title">{{ array_key_last($links) }}</h4>
+                            </div>
+                        </div>
+                    </div>
+                @endif
+                @yield('content')
+            </div>
+        </div>
+        @include('backend.includes.footer')
+    </div>
+</div>
 
-                    @include('includes.partials.messages')
-                    @yield('content')
-                </div><!--animated-->
-            </div><!--container-fluid-->
-        </main><!--main-->
-
-        @include('backend.includes.aside')
-    </div><!--app-body-->
-
-    @include('backend.includes.footer')
-
-    <!-- Scripts -->
-    @stack('before-scripts')
-    {!! script(mix('js/manifest.js')) !!}
-    {!! script(mix('js/vendor.js')) !!}
-    {!! script(mix('js/backend.js')) !!}
-    @stack('after-scripts')
+<script src="{{ asset('theme/default/js/vendor.min.js') }}"></script>
+<script src="{{ asset('theme/default/libs/morris-js/morris.min.js') }}"></script>
+<script src="{{ asset('theme/default/libs/raphael/raphael.min.js') }}"></script>
+<script src="{{ asset('theme/default/js/pages/crm-dashboard.init.js') }}"></script>
+<script src="{{ asset('theme/default/js/app.min.js') }}"></script>
 </body>
+
 </html>

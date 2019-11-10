@@ -1,71 +1,41 @@
-<header class="app-header navbar">
-    <button class="navbar-toggler sidebar-toggler d-lg-none mr-auto" type="button" data-toggle="sidebar-show">
-        <span class="navbar-toggler-icon"></span>
-    </button>
-    <a class="navbar-brand" href="#">
-        <img class="navbar-brand-full" src="{{ asset('img/maiwp/logo.png') }}" width="89" height="25" alt="CoreUI Logo">
-        <img class="navbar-brand-minimized" src="{{ asset('img/backend/brand/sygnet.svg') }}" width="30" height="30" alt="CoreUI Logo">
-    </a>
-    <button class="navbar-toggler sidebar-toggler d-md-down-none" type="button" data-toggle="sidebar-lg-show">
-        <span class="navbar-toggler-icon"></span>
-    </button>
+<div class="navbar-custom">
+    <ul class="list-unstyled topnav-menu float-right mb-0">
+        <li class="dropdown notification-list">
+            <a class="nav-link dropdown-toggle nav-user mr-0 waves-effect waves-light" data-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">
+                <img src="{{ $logged_in_user->picture }}" alt="user-image" class="rounded-circle">
+                <span class="pro-user-name ml-1">{{ $logged_in_user->full_name }} <i class="mdi mdi-chevron-down"></i></span>
+            </a>
+            <div class="dropdown-menu dropdown-menu-right profile-dropdown ">
+                <div class="dropdown-header noti-title">
+                    <h6 class="text-overflow m-0">Selamat Datang !</h6>
+                </div>
 
-    <ul class="nav navbar-nav d-md-down-none">
-        <li class="nav-item px-3">
-            <a class="nav-link" href="{{ route('frontend.index') }}"><i class="fas fa-home"></i></a>
-        </li>
-
-        <li class="nav-item px-3">
-            <a class="nav-link" href="{{ route('admin.dashboard') }}">@lang('navs.frontend.dashboard')</a>
-        </li>
-
-        @if(config('locale.status') && count(config('locale.languages')) > 1)
-            <li class="nav-item px-3 dropdown">
-                <a class="nav-link dropdown-toggle nav-link" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
-                    <span class="d-md-down-none">@lang('menus.language-picker.language') ({{ strtoupper(app()->getLocale()) }})</span>
+                <a href="javascript:void(0);" class="dropdown-item notify-item">
+                    <i class="fe-user"></i>
+                    <span>Akaun Saya</span>
+                </a>
+                <div class="dropdown-divider"></div>
+                <a href="{{ route('frontend.auth.logout') }}" class="dropdown-item notify-item">
+                    <i class="fe-log-out"></i>
+                    <span>log Keluar</span>
                 </a>
 
-                @include('includes.partials.lang')
-            </li>
-        @endif
-    </ul>
-
-    <ul class="nav navbar-nav ml-auto">
-        <li class="nav-item d-md-down-none">
-            <a class="nav-link" href="#">
-                <i class="fas fa-bell"></i>
-            </a>
-        </li>
-        <li class="nav-item d-md-down-none">
-            <a class="nav-link" href="#">
-                <i class="fas fa-list"></i>
-            </a>
-        </li>
-        <li class="nav-item d-md-down-none">
-            <a class="nav-link" href="#">
-                <i class="fas fa-map-marker-alt"></i>
-            </a>
-        </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
-            <img src="{{ $logged_in_user->picture }}" class="img-avatar" alt="{{ $logged_in_user->email }}">
-            <span class="d-md-down-none">{{ $logged_in_user->full_name }}</span>
-          </a>
-          <div class="dropdown-menu dropdown-menu-right">
-            <div class="dropdown-header text-center">
-              <strong>Account</strong>
             </div>
-            <a class="dropdown-item" href="{{ route('frontend.auth.logout') }}">
-                <i class="fas fa-lock"></i> @lang('navs.general.logout')
-            </a>
-          </div>
         </li>
     </ul>
 
-    <button class="navbar-toggler aside-menu-toggler d-md-down-none" type="button" data-toggle="aside-menu-lg-show">
-        <span class="navbar-toggler-icon"></span>
-    </button>
-    <button class="navbar-toggler aside-menu-toggler d-lg-none" type="button" data-toggle="aside-menu-show">
-        <span class="navbar-toggler-icon"></span>
-    </button>
-</header>
+    <div class="logo-box">
+        <a href="index.html" class="logo text-center">
+            <span class="logo-lg"><img src="{{ asset('img/maiwp/logo.png') }}" alt="" height="40"></span>
+            <span class="logo-sm"><img src="{{ asset('img/maiwp/logo.png') }}" alt="" height="24"></span>
+        </a>
+    </div>
+
+    <ul class="list-unstyled topnav-menu topnav-menu-left m-0">
+        <li>
+            <button class="button-menu-mobile waves-effect waves-light">
+                <i class="fe-menu"></i>
+            </button>
+        </li>
+    </ul>
+</div>
