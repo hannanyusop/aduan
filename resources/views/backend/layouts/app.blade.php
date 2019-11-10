@@ -50,10 +50,9 @@
 </div>
 
 <script src="{{ asset('theme/default/js/vendor.min.js') }}"></script>
-<script src="{{ asset('theme/default/libs/morris-js/morris.min.js') }}"></script>
 <script src="{{ asset('theme/default/libs/raphael/raphael.min.js') }}"></script>
-<script src="{{ asset('theme/default/js/pages/crm-dashboard.init.js') }}"></script>
 <script src="{{ asset('theme/default/js/app.min.js') }}"></script>
+@stack('after-script')
 </body>
 
 </html>

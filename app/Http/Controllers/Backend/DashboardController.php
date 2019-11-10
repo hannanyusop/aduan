@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller;
+use App\Models\Auth\Report;
 
 /**
  * Class DashboardController.
@@ -14,6 +15,8 @@ class DashboardController extends Controller
      */
     public function index()
     {
-        return view('backend.dashboard');
+        $reports = Report::get();
+
+        return view('backend.dashboard',compact('reports'));
     }
 }

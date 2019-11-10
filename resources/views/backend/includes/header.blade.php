@@ -27,7 +27,7 @@
     <div class="logo-box">
         <a href="index.html" class="logo text-center">
             <span class="logo-lg"><img src="{{ asset('img/maiwp/logo.png') }}" alt="" height="40"></span>
-            <span class="logo-sm"><img src="{{ asset('img/maiwp/logo.png') }}" alt="" height="24"></span>
+            <span class="logo-sm"><img src="{{ asset('img/maiwp/icon.png') }}" alt="" height="55"></span>
         </a>
     </div>
 

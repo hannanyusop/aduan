@@ -7,6 +7,7 @@ use App\Http\Controllers\Backend\Auth\User\UserStatusController;
 use App\Http\Controllers\Backend\Auth\User\UserSessionController;
 use App\Http\Controllers\Backend\Auth\User\UserPasswordController;
 use App\Http\Controllers\Backend\Auth\User\UserConfirmationController;
+use App\Http\Controllers\Backend\Auth\ReportController;
 
 // All route names are prefixed with 'admin.auth'.
 Route::group([
@@ -59,6 +60,14 @@ Route::group([
             Route::get('restore', [UserStatusController::class, 'restore'])->name('user.restore');
         });
     });
+
+    Route::group(['prefix' => 'report/', 'as' => 'report.'], function () {
+
+        Route::get('/', [ReportController::class, 'index'])->name('index');
+        Route::get('view/{id}', [ReportController::class, 'view'])->name('view');
+        Route::post('update/{id}', [ReportController::class, 'update'])->name('update');
+    });
+
 
     // Role Management
     Route::group(['namespace' => 'Role'], function () {

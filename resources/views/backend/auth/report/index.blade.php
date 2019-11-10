@@ -1,6 +1,8 @@
 <?php
  $links = [
-     'Utama' => ''
+     'Utama' => '',
+     'Aduan' => '',
+     'Senarai Aduan' => route('admin.auth.report.index')
  ];
 ?>
 @extends('backend.layouts.app')

@@ -20,7 +20,7 @@
                     </a>
                     <ul class="nav-second-level" aria-expanded="false">
                         <li>
-                            <a href="#">Senarai Aduan</a>
+                            <a href="{{ route('admin.auth.report.index') }}">Senarai Aduan</a>
                         </li>
                     </ul>
                 </li>
