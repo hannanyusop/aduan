@@ -57,10 +57,10 @@
                     {{ html()->form('POST', route('frontend.contact.send'))->class('appointment-form ftco-animate')->open() }}
                         <div class="d-md-flex">
                             <div class="form-group">
-                                {{ html()->email('email')->class('form-control')->placeholder('E-mel')->required() }}
+                                {{ html()->email('email')->class('form-control')->placeholder('E-mel') }}
                             </div>
                             <div class="form-group ml-md-4">
-                                {{ html()->text('phone')->class('form-control')->placeholder('Telefon')->required() }}
+                                {{ html()->text('phone')->class('form-control')->placeholder('Telefon') }}
                             </div>
                         </div>
                         <div class="d-md-flex">
