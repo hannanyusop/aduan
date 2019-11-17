@@ -62,7 +62,7 @@
                 </div>
                 <div class="row mt-3">
                     <div class="col-12 text-center">
-                        <p class="text-danger"><a href="pages-register.html" class="text-danger ml-1"><b>Balik ke laman utama</b></a></p>
+                        <p class="text-danger"><a href="{{ route('frontend.index') }}" class="text-danger ml-1"><b>Balik ke laman utama</b></a></p>
                     </div>
                 </div>
             </div>

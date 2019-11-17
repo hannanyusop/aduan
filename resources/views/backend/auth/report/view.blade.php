@@ -26,7 +26,11 @@
                         <div class="media mb-4 mt-1">
                             <div class="media-body">
                                 <span class="float-right">{{ $report->created_at }}</span>
-                                <h6 class="m-0 font-14">{{ $report->email }}</h6>
+                                <h6 class="m-0 font-14">Name:{{ $report->name }}</h6>
+                                <h6 class="m-0 font-14">E-mel:{{ $report->email }}</h6>
+                                <h6 class="m-0 font-14">Nombor MyKad:{{ $report->ic_no }}</h6>
+                                <h6 class="m-0 font-14">Kaum:{{ $report->race }}</h6>
+                                <h6 class="m-0 font-14">Warganegra:{{ $report->nation }}</h6>
                                 <small class="text-muted">No. Tel: {{ $report->phone }}</small>
                             </div>
                         </div>

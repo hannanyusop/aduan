@@ -1,4 +1,4 @@
-@import url(https://fonts.googleapis.com/css?family=Nunito:400,600,700,900);
+/*@import url(https://fonts.googleapis.com/css?family=Nunito:400,600,700,900);*/
 @font-face {
     font-family: "Cerebri Sans,sans-serif";
     src: url(../fonts/cerebrisans-light.eot);
@@ -2018,7 +2018,6 @@ body.boxed-layout.enlarged .footer {
 }
 
 .bg-pattern {
-    background-image: url(../images/bg-pattern-2.png);
     background-size: cover
 }
 
@@ -2029,7 +2028,6 @@ body.authentication-bg {
 }
 
 body.authentication-bg-pattern {
-    background-image: url(../images/bg-pattern.png);
     background-color: #e3ddde
 }
 
