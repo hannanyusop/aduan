@@ -279,7 +279,7 @@ class AduanController extends Controller{
         );
 
 
-        $races = array('Melayu', 'Cina', 'India', 'Bumiputra', 'Lain-lain');
+        $races = ['Melayu' => 'Melayu', 'Cina'=>'Cina', 'India' => 'India', 'Bumiputera' =>'Bumiputera', 'Lain-lain' => 'Lain-lain'];
 
         return view('frontend.aduan.index', compact('nationals', 'races'));
     }
