@@ -68,13 +68,13 @@ $links = [
                                     ->placeholder('Sahkan Katalaluan')
                                     ->required() }}
                             </div>
-                            @error('password_confirm')<p class="text-danger">*{{ $message }}</p>@enderror
+                            @error('password_confirmation')<p class="text-danger">*{{ $message }}</p>@enderror
                         </div>
 
                         <div class="form-group row mb-3">
                             <label for="inputPassword5" class="col-3 col-form-label">Peranan</label>
                             <div class="col-9">
-                                {{ html()->select('role', $roles)->class('form-control') }}
+                                {{ html()->select('roles[]', $roles)->class('form-control') }}
                             </div>
                             @error('role')<p class="text-danger">*{{ $message }}</p>@enderror
                         </div>

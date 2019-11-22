@@ -16,16 +16,8 @@ $links = [
                     <form method="get">
                         <div class="form-row align-items-center">
                             <div class="col-auto">
-                                <label class="sr-only" for="name">EMAIL/NAMA PENGADU</label>
-                                <input type="text" name="name" class="form-control mb-2" value="{{ (request()->has('name'))? request('name') : "" }}" id="name" placeholder="EMAIL/NAMA PENGADU">
-                            </div>
-                            <div class="col-auto">
-                                <label class="sr-only" for="status">STATUS</label>
-                                <select class="custom-select form-control mb-2" name="status">
-                                    <option value="">SEMUA</option>
-                                    <option value="1" {{ (request()->has('status'))? (request('status') == 1)? "SELECTED" : "" : "" }}>BELUM</option>
-                                    <option value="2" {{ (request()->has('status'))? (request('status') == 2)? "SELECTED" : "" : "" }}>SELESAI</option>
-                                </select>
+                                <label class="sr-only" for="name">NAMA STAFF</label>
+                                <input type="text" name="name" class="form-control mb-2" value="{{ (request()->has('name'))? request('name') : "" }}" id="name" placeholder="NAMA STAFF">
                             </div>
                             <div class="col-auto">
                                 <button type="submit" class="btn btn-primary waves-effect waves-light mb-2">Submit</button>
@@ -55,7 +47,6 @@ $links = [
                                 <tr>
                                     <th>Nama Penuh</th>
                                     <th>Email</th>
-                                    <th>Disahkan</th>
                                     <th>Peranan</th>
                                     <th>Kali Terakhir Dikemaskini</th>
                                     <th style="width: 82px;"></th>
@@ -66,10 +57,15 @@ $links = [
                                     <tr>
                                         <td>{{ $user->full_name }}</td>
                                         <td>{{ $user->email }}</td>
-                                        <td>@include('backend.auth.user.includes.confirm', ['user' => $user])</td>
                                         <td>{{ $user->roles_label }}</td>
                                         <td>{{ $user->updated_at->diffForHumans() }}</td>
-                                        <td>@include('backend.auth.user.includes.actions', ['user' => $user])</td>
+                                        <td>
+                                            <div class="btn-group btn-group-sm mb-2">
+                                                <a href="{{ route('admin.auth.user.show', $user) }}" class="btn btn-success">Lihat</a>
+
+                                                <a href="{{ route('admin.auth.user.edit', $user) }}" class="btn btn-warning">Kemaskini</a>
+                                            </div>
+                                        </td>
                                     </tr>
                                 @endforeach
                                 </tbody>

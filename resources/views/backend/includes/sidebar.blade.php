@@ -26,7 +26,6 @@
                 </li>
 
                 @if ($logged_in_user->isAdmin())
-                    <li class="menu-title mt-2">Sistem</li>
                     <li>
                         <a href="javascript: void(0);">
                             <i class="fe-users"></i><span>Pengurusan Staff</span><span class="menu-arrow"></span>
@@ -37,19 +36,6 @@
                             </li>
                             <li>
                                 <a href="{{ route('admin.auth.user.create') }}">Tambah Staff</a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="javascript: void(0);">
-                            <i class="fe-activity"></i><span>Log</span><span class="menu-arrow"></span>
-                        </a>
-                        <ul class="nav-second-level" aria-expanded="false">
-                            <li>
-                                <a href="{{ route('log-viewer::dashboard') }}">Ringkasan</a>
-                            </li>
-                            <li>
-                                <a href="{{ route('log-viewer::logs.list') }}">Full Log</a>
                             </li>
                         </ul>
                     </li>

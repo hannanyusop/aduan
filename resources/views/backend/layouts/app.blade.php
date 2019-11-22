@@ -19,7 +19,6 @@
 <div id="wrapper">
     @include('backend.includes.header')
     @include('backend.includes.sidebar')
-    @include('includes.partials.messages')
 
     <div class="content-page">
 
@@ -42,7 +41,9 @@
                         </div>
                     </div>
                 @endif
-                @yield('content')
+                    @include('includes.partials.messages')
+
+                    @yield('content')
             </div>
         </div>
         @include('backend.includes.footer')
