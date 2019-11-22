@@ -1,75 +1,87 @@
+<?php
+$links = [
+    'Utama' => '',
+    'Pengurusan Staff' => '',
+    'Senarai' => route('admin.auth.user.index')
+];
+?>
 @extends('backend.layouts.app')
 
-@section('title', app_name() . ' | ' . __('labels.backend.access.users.management'))
-
-@section('breadcrumb-links')
-    @include('backend.auth.user.includes.breadcrumb-links')
-@endsection
-
 @section('content')
-<div class="card">
-    <div class="card-body">
-        <div class="row">
-            <div class="col-sm-5">
-                <h4 class="card-title mb-0">
-                    {{ __('labels.backend.access.users.management') }} <small class="text-muted">{{ __('labels.backend.access.users.active') }}</small>
-                </h4>
-            </div><!--col-->
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-body">
 
-            <div class="col-sm-7">
-                @include('backend.auth.user.includes.header-buttons')
-            </div><!--col-->
-        </div><!--row-->
+                    <form method="get">
+                        <div class="form-row align-items-center">
+                            <div class="col-auto">
+                                <label class="sr-only" for="name">EMAIL/NAMA PENGADU</label>
+                                <input type="text" name="name" class="form-control mb-2" value="{{ (request()->has('name'))? request('name') : "" }}" id="name" placeholder="EMAIL/NAMA PENGADU">
+                            </div>
+                            <div class="col-auto">
+                                <label class="sr-only" for="status">STATUS</label>
+                                <select class="custom-select form-control mb-2" name="status">
+                                    <option value="">SEMUA</option>
+                                    <option value="1" {{ (request()->has('status'))? (request('status') == 1)? "SELECTED" : "" : "" }}>BELUM</option>
+                                    <option value="2" {{ (request()->has('status'))? (request('status') == 2)? "SELECTED" : "" : "" }}>SELESAI</option>
+                                </select>
+                            </div>
+                            <div class="col-auto">
+                                <button type="submit" class="btn btn-primary waves-effect waves-light mb-2">Submit</button>
+                            </div>
+                        </div>
+                    </form>
 
-        <div class="row mt-4">
-            <div class="col">
-                <div class="table-responsive">
-                    <table class="table">
-                        <thead>
-                        <tr>
-                            <th>@lang('labels.backend.access.users.table.last_name')</th>
-                            <th>@lang('labels.backend.access.users.table.first_name')</th>
-                            <th>@lang('labels.backend.access.users.table.email')</th>
-                            <th>@lang('labels.backend.access.users.table.confirmed')</th>
-                            <th>@lang('labels.backend.access.users.table.roles')</th>
-                            <th>@lang('labels.backend.access.users.table.other_permissions')</th>
-                            <th>@lang('labels.backend.access.users.table.social')</th>
-                            <th>@lang('labels.backend.access.users.table.last_updated')</th>
-                            <th>@lang('labels.general.actions')</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        @foreach($users as $user)
-                            <tr>
-                                <td>{{ $user->last_name }}</td>
-                                <td>{{ $user->first_name }}</td>
-                                <td>{{ $user->email }}</td>
-                                <td>@include('backend.auth.user.includes.confirm', ['user' => $user])</td>
-                                <td>{{ $user->roles_label }}</td>
-                                <td>{{ $user->permissions_label }}</td>
-                                <td>@include('backend.auth.user.includes.social-buttons', ['user' => $user])</td>
-                                <td>{{ $user->updated_at->diffForHumans() }}</td>
-                                <td>@include('backend.auth.user.includes.actions', ['user' => $user])</td>
-                            </tr>
-                        @endforeach
-                        </tbody>
-                    </table>
-                </div>
-            </div><!--col-->
-        </div><!--row-->
-        <div class="row">
-            <div class="col-7">
-                <div class="float-left">
-                    {!! $users->total() !!} {{ trans_choice('labels.backend.access.users.table.total', $users->total()) }}
-                </div>
-            </div><!--col-->
+                </div> <!-- end card-body -->
+            </div>
+        </div>
+    </div>
 
-            <div class="col-5">
-                <div class="float-right">
-                    {!! $users->render() !!}
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="card">
+                <div class="card-body">
+                    <div class="card-widgets">
+                        <a href="javascript: void(0);" data-toggle="reload"><i class="mdi mdi-refresh"></i></a>
+                        <a data-toggle="collapse" href="#cardCollpase3" role="button" aria-expanded="false" aria-controls="cardCollpase3"><i class="mdi mdi-minus"></i></a>
+                    </div>
+                    <h4 class="header-title mb-0">Senarai Staff</h4>
+
+                    <div id="cardCollpase3" class="collapse pt-3 show">
+                        <div class="table-responsive">
+                            <table class="table table-centered table-hover mb-0">
+                                <thead>
+                                <tr>
+                                    <th>Nama Penuh</th>
+                                    <th>Email</th>
+                                    <th>Disahkan</th>
+                                    <th>Peranan</th>
+                                    <th>Kali Terakhir Dikemaskini</th>
+                                    <th style="width: 82px;"></th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                @foreach($users as $user)
+                                    <tr>
+                                        <td>{{ $user->full_name }}</td>
+                                        <td>{{ $user->email }}</td>
+                                        <td>@include('backend.auth.user.includes.confirm', ['user' => $user])</td>
+                                        <td>{{ $user->roles_label }}</td>
+                                        <td>{{ $user->updated_at->diffForHumans() }}</td>
+                                        <td>@include('backend.auth.user.includes.actions', ['user' => $user])</td>
+                                    </tr>
+                                @endforeach
+                                </tbody>
+                            </table>
+
+                            <div class="mt-3">
+                                {{ $users->links() }}
+                            </div>
+                        </div>
+                    </div>
                 </div>
-            </div><!--col-->
-        </div><!--row-->
-    </div><!--card-body-->
-</div><!--card-->
+            </div>
+        </div>
+    </div>
 @endsection

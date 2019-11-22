@@ -42,7 +42,7 @@
                                 <div class="avatar-md rounded-circle bg-soft-danger mx-auto">
                                     <i class="dripicons-message font-22 avatar-title text-danger"></i>
                                 </div>
-                                <h5 class="text-uppercase mt-3">Buat Aduan</h5>
+                                <h5 class="text-uppercase mt-3">Sistem Aduan Baitulmal MAIWP</h5>
                                 <p class="text-muted">Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical but the majority.</p>
                                 <a class="text-danger font-weight-bold" href="{{ route('frontend.aduan.index') }}">Pautan</a>
                             </div>
@@ -52,7 +52,7 @@
                                 <div class="avatar-md rounded-circle bg-soft-danger mx-auto">
                                     <i class="dripicons-user font-22 avatar-title text-danger"></i>
                                 </div>
-                                <h5 class="text-uppercase mt-3">Sistem Aduan Baitulmal MAIWP</h5>
+                                <h5 class="text-uppercase mt-3">KEGUNAAN MAIWP</h5>
                                 <p class="text-muted">If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embar.</p>
                                 <a class="text-danger font-weight-bold" href="{{ route('frontend.auth.login') }}">Pautan</a>
                             </div>

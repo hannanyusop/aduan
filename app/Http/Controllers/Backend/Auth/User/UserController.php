@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Backend\Auth\User;
 
+use App\Models\Auth\Role;
 use App\Models\Auth\User;
 use App\Http\Controllers\Controller;
 use App\Events\Backend\Auth\User\UserDeleted;
@@ -50,11 +51,11 @@ class UserController extends Controller
      *
      * @return mixed
      */
-    public function create(ManageUserRequest $request, RoleRepository $roleRepository, PermissionRepository $permissionRepository)
+    public function create(ManageUserRequest $request)
     {
-        return view('backend.auth.user.create')
-            ->withRoles($roleRepository->with('permissions')->get(['id', 'name']))
-            ->withPermissions($permissionRepository->get(['id', 'name']));
+        $roles = Role::pluck('name', 'id');
+
+        return view('backend.auth.user.create', compact('roles'));
     }
 
     /**

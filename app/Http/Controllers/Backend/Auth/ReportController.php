@@ -10,9 +10,26 @@ use Illuminate\Http\Request;
 class ReportController extends Controller
 {
 
-    public function index()
+    public function index(Request $request)
     {
-        $reports = Report::get();
+        if($request->has('name')){
+
+
+            if($request->status != ""){
+
+                $reports = Report::where('name', 'like', "%$request->name%")
+                    ->orWhere('email', 'like', "%$request->email%")
+                    ->where("status", $request->status)
+                    ->paginate(20);;
+            }else{
+                $reports = Report::where('name', 'like', "%$request->name%")
+                    ->orWhere('email', 'like', "%$request->email%")
+                    ->paginate(20);
+            }
+
+        }else{
+            $reports = Report::paginate(20);
+        }
 
         return view('backend.auth.report.index',compact('reports'));
     }

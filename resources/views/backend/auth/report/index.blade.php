@@ -9,57 +9,33 @@
 
 @section('content')
     <div class="row">
-        <div class="col-md-4">
-            <div class="card-box bg-pattern">
-                <div class="row">
-                    <div class="col-6">
-                        <div class="avatar-md bg-blue rounded">
-                            <i class="fe-layers avatar-title font-22 text-white"></i>
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-body">
+
+                    <form method="get">
+                        <div class="form-row align-items-center">
+                            <div class="col-auto">
+                                <label class="sr-only" for="name">EMAIL/NAMA PENGADU</label>
+                                <input type="text" name="name" class="form-control mb-2" value="{{ (request()->has('name'))? request('name') : "" }}" id="name" placeholder="EMAIL/NAMA PENGADU">
+                            </div>
+                            <div class="col-auto">
+                                <label class="sr-only" for="status">STATUS</label>
+                                <select class="custom-select form-control mb-2" name="status">
+                                    <option value="">SEMUA</option>
+                                    <option value="1" {{ (request()->has('status'))? (request('status') == 1)? "SELECTED" : "" : "" }}>BELUM</option>
+                                    <option value="2" {{ (request()->has('status'))? (request('status') == 2)? "SELECTED" : "" : "" }}>SELESAI</option>
+                                </select>
+                            </div>
+                            <div class="col-auto">
+                                <button type="submit" class="btn btn-primary waves-effect waves-light mb-2">Submit</button>
+                            </div>
                         </div>
-                    </div>
-                    <div class="col-6">
-                        <div class="text-right">
-                            <h3 class="text-dark my-1"><span data-plugin="counterup">120</span></h3>
-                            <p class="text-muted mb-0 text-truncate">Belum Selesai</p>
-                        </div>
-                    </div>
-                </div>
+                    </form>
+
+                </div> <!-- end card-body -->
             </div>
         </div>
-        <div class="col-md-4">
-            <div class="card-box bg-pattern">
-                <div class="row">
-                    <div class="col-6">
-                        <div class="avatar-md bg-success rounded">
-                            <i class="fe-award avatar-title font-22 text-white"></i>
-                        </div>
-                    </div>
-                    <div class="col-6">
-                        <div class="text-right">
-                            <h3 class="text-dark my-1"><span data-plugin="counterup">741</span></h3>
-                            <p class="text-muted mb-0 text-truncate">Selesai</p>
-                        </div>
-                    </div>
-                </div>
-            </div> <!-- end card-box-->
-        </div> <!-- end col -->
-        <div class="col-md-4">
-            <div class="card-box bg-pattern">
-                <div class="row">
-                    <div class="col-6">
-                        <div class="avatar-md bg-danger rounded">
-                            <i class="fe-delete avatar-title font-22 text-white"></i>
-                        </div>
-                    </div>
-                    <div class="col-6">
-                        <div class="text-right">
-                            <h3 class="text-dark my-1"><span data-plugin="counterup">256</span></h3>
-                            <p class="text-muted mb-0 text-truncate">Jumlah Aduan</p>
-                        </div>
-                    </div>
-                </div>
-            </div> <!-- end card-box-->
-        </div> <!-- end col -->
     </div>
 
     <div class="row">
@@ -78,6 +54,7 @@
                                 <thead>
                                 <tr>
                                     <th>E-mel</th>
+                                    <th>Name</th>
                                     <th>No. Tel</th>
                                     <th>Tajuk</th>
                                     <th>Status</th>
@@ -91,6 +68,7 @@
                                         <td class="table-user">
                                             <a href="javascript:void(0);" class="text-body font-weight-semibold">{{ $report->email }}</a>
                                         </td>
+                                        <td>{{ $report->name }}</td>
                                         <td>{{ $report->phone }}</td>
                                         <td>{{ $report->subject }}</td>
                                         <td>{!! ($report->status == 1)? '<b class="text-danger">Belum</b>' : '<b class="text-success">Selesai</b>' !!}</td>
@@ -102,6 +80,10 @@
                                 @endforeach
                                 </tbody>
                             </table>
+
+                            <div class="mt-3">
+                                {{ $reports->links() }}
+                            </div>
                         </div>
                     </div>
                 </div>

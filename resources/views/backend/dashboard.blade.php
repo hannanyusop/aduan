@@ -17,7 +17,7 @@
                     </div>
                     <div class="col-6">
                         <div class="text-right">
-                            <h3 class="text-dark my-1"><span data-plugin="counterup">120</span></h3>
+                            <h3 class="text-dark my-1"><span data-plugin="counterup">{{ $data['pending'] }}</span></h3>
                             <p class="text-muted mb-0 text-truncate">Belum Selesai</p>
                         </div>
                     </div>
@@ -34,7 +34,7 @@
                     </div>
                     <div class="col-6">
                         <div class="text-right">
-                            <h3 class="text-dark my-1"><span data-plugin="counterup">741</span></h3>
+                            <h3 class="text-dark my-1"><span data-plugin="counterup">{{ $data['solved'] }}</span></h3>
                             <p class="text-muted mb-0 text-truncate">Selesai</p>
                         </div>
                     </div>
@@ -51,7 +51,7 @@
                     </div>
                     <div class="col-6">
                         <div class="text-right">
-                            <h3 class="text-dark my-1"><span data-plugin="counterup">256</span></h3>
+                            <h3 class="text-dark my-1"><span data-plugin="counterup">{{ $data['total'] }}</span></h3>
                             <p class="text-muted mb-0 text-truncate">Jumlah Aduan</p>
                         </div>
                     </div>
