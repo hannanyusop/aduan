@@ -15,7 +15,6 @@
                 <li>
                     <a href="javascript: void(0);">
                         <i class="fe-mail"></i>
-                        <span class="badge badge-success badge-pill float-right">4</span>
                         <span> Aduan </span>
                     </a>
                     <ul class="nav-second-level" aria-expanded="false">

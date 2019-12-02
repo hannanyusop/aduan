@@ -17,7 +17,7 @@
                 <div class="dropdown-divider"></div>
                 <a href="{{ route('frontend.auth.logout') }}" class="dropdown-item notify-item">
                     <i class="fe-log-out"></i>
-                    <span>log Keluar</span>
+                    <span>Log Keluar</span>
                 </a>
 
             </div>

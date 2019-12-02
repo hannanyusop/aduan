@@ -73,7 +73,7 @@
 
                                 <div class="form-group mb-3">
                                     <label for="race">Kaum</label>
-                                    {{ html()->select('race', $races)->class('form-control') }}
+                                    {{ html()->select('race', ['' => '-- Sila Pilih --']+$races)->class('form-control') }}
                                     @error('race')
                                     <p class="text-danger">*{{ $message }}</p>
                                     @enderror
@@ -82,7 +82,7 @@
 
                                 <div class="form-group mb-3">
                                     <label for="nation">Warganegara</label>
-                                    {{ html()->select('nation', $nationals)->class('form-control') }}
+                                    {{ html()->select('nation', ['' => '-- Sila Pilih --']+$nationals)->class('form-control') }}
                                     @error('nation')<p class="text-danger">*{{ $message }}</p>@enderror
                                 </div>
 

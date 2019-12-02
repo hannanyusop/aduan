@@ -24,7 +24,7 @@
                 <div class="text-center">
                     <span><img src="{{ asset('img/maiwp/icon.png') }}" alt="" height="100"></span>
                     <h3 class="mt-4">Majlis Agama Islam Wilayah Persekutuan <br>Cawangan Labuan</h3>
-                    <p class="text-muted">We're making the system more awesome. We'll be back shortly.</p>
+                    <p class="text-muted"></p>
 
                     <div class="row mt-5">
                         <div class="col-md-4">
@@ -33,7 +33,7 @@
                                     <i class="dripicons-web font-22 avatar-title text-danger"></i>
                                 </div>
                                 <h5 class="text-uppercase mt-3">Laman Web Utama</h5>
-                                <p class="text-muted">There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration.</p>
+                                <p class="text-muted"></p>
                                 <a class="text-danger font-weight-bold" href="https://www.maiwp.gov.my/i/index.php/en/">Pautan</a>
                             </div>
                         </div> <!-- end col-->
@@ -43,7 +43,7 @@
                                     <i class="dripicons-message font-22 avatar-title text-danger"></i>
                                 </div>
                                 <h5 class="text-uppercase mt-3">Sistem Aduan Baitulmal MAIWP</h5>
-                                <p class="text-muted">Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical but the majority.</p>
+                                <p class="text-muted"></p>
                                 <a class="text-danger font-weight-bold" href="{{ route('frontend.aduan.index') }}">Pautan</a>
                             </div>
                         </div> <!-- end col-->
@@ -53,7 +53,7 @@
                                     <i class="dripicons-user font-22 avatar-title text-danger"></i>
                                 </div>
                                 <h5 class="text-uppercase mt-3">KEGUNAAN MAIWP</h5>
-                                <p class="text-muted">If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embar.</p>
+                                <p class="text-muted"></p>
                                 <a class="text-danger font-weight-bold" href="{{ route('frontend.auth.login') }}">Pautan</a>
                             </div>
                         </div> <!-- end col-->
