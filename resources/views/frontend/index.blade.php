@@ -69,7 +69,7 @@
 <!-- end page -->
 
 <footer class="footer footer-alt">
-    2015 - 2019 &copy; UBold theme by <a href="#" class="text-white-50">Coderthemes</a>
+    Hakcipta © 2017 Majlis Agama Islam Wilayah Persekutuan. Disediakan oleh Bahagian Teknologi Maklumat.
 </footer>
 <script src="{{ asset('theme/default/js/vendor.min.js') }}"></script>
 <script src="{{ asset('theme/default/js/app.min.js') }}"></script>
